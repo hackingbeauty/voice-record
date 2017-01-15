@@ -18,7 +18,6 @@ export default class Navigation extends Component {
           <Tab
             label="Tab A"
             value="a">
-
           </Tab>
           <Tab
             label="Tab B"
