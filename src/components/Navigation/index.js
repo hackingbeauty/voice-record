@@ -15,12 +15,26 @@ class Navigation extends Component {
     }
   }
 
-  handleChange(index) {
+  componentDidMount() {
+    const currentRoute = this.props.router.location.pathname;
+    switch(currentRoute) {
+      case '/record':
+        this.handleChange(0, false);
+        break
+      case '/recordings':
+        this.handleChange(1, false);
+        break;
+      default:
+        break;
+    }
+  }
+
+  handleChange(index, routeToURL) {
     this.setState({
       slideIndex: index
     });
 
-    this.pushRoute(index);
+    if(routeToURL !== false) { this.pushRoute(index) };
   }
 
   pushRoute(index){
