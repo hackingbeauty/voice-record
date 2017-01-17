@@ -28,10 +28,7 @@ export class App extends Component {
       <MuiThemeProvider muiTheme={getMuiTheme()}>
         <div>
           <Header />
-          <div className="container">
-            {this.props.children}
-          </div>
-          <Navigation />
+          <Navigation content={this.props.children} />
           <LeftNavBar />
         </div>
       </MuiThemeProvider>

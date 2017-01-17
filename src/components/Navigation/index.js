@@ -51,6 +51,7 @@ class Navigation extends Component {
   }
 
   render() {
+    const content = this.props.content;
     return(
       <div className={styles}>
         <Tabs
@@ -70,20 +71,10 @@ class Navigation extends Component {
             index={this.state.slideIndex}
             onChangeIndex={this.handleChange}>
             <div id="view-1">
-              <h2>Controllable Tab A</h2>
-              <p>
-                Tabs are also controllable if you want to programmatically pass them their values.
-                This allows for more functionality in Tabs such as not
-                having any Tab selected or assigning them different values.
-              </p>
+              {content}
             </div>
             <div id="view=2">
-              <h2>Controllable Tab B</h2>
-              <p>
-                This is another example of a controllable tab. Remember, if you
-                use controllable Tabs, you need to give all of your tabs values or else
-                you wont be able to select them.
-              </p>
+              {content}
             </div>
           </SwipeableViews>
         </div>
