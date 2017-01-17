@@ -1,31 +1,60 @@
 import React, { Component }   from 'react';
 import { Tabs, Tab }          from 'material-ui';
 import SwipeableViews         from 'react-swipeable-views';
+import { withRouter }         from 'react-router';
 
 /* component styles */
 import { styles } from './styles.scss';
 
-export default class Navigation extends Component {
-
+class Navigation extends Component {
   constructor(props) {
     super(props);
+    this.handleChange = this.handleChange.bind(this);
+    this.state = {
+      slideIndex: 0
+    }
+  }
+
+  handleChange(index) {
+    this.setState({
+      slideIndex: index
+    });
+
+    this.pushRoute(index);
+  }
+
+  pushRoute(index){
+    switch(index){
+      case 0:
+        this.props.router.push('/record');
+        break;
+      case 1:
+        this.props.router.push('/recordings');
+        break;
+      default:
+        break;
+    }
   }
 
   render() {
     return(
       <div className={styles}>
-        <Tabs>
+        <Tabs
+          value={this.state.slideIndex}
+          onChange={this.handleChange}>
           <Tab
-            label="Tab A"
-            value="a">
+            label="Record"
+            value={0}>
           </Tab>
           <Tab
-            label="Tab B"
-            value="b">
+            label="Listen"
+            value={1}>
           </Tab>
         </Tabs>
         <div className="container">
-          <SwipeableViews>
+          <SwipeableViews
+            index={this.state.slideIndex}
+            onChangeIndex={this.handleChange}>
             <div id="view-1">
               <h2>Controllable Tab A</h2>
               <p>
@@ -49,3 +78,5 @@ export default class Navigation extends Component {
   }
 
 }
+
+export default withRouter(Navigation);
