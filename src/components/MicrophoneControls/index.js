@@ -12,7 +12,7 @@ import { ReactMic,
 /* component styles */
 import { styles } from './styles.scss';
 
-export default class MicrophoneControls extends Component {
+export default class Microphone extends Component {
   constructor(props) {
     super(props);
     this.startMicrophone = this.startMicrophone.bind(this);
@@ -59,7 +59,7 @@ export default class MicrophoneControls extends Component {
         <div className={styles}>
           <div className="microphone-container">
             <div className="microphone-volume"></div>
-            <ReactMic strokeColor="#FF4081" backgroundColor="#000000" height={80} />
+            <ReactMic className="recording-line" strokeColor="##0096ef" backgroundColor="#414141" height={80} />
           </div>
           <span onTouchTap={this.stopMicrophone}>stop</span>
           <Button
@@ -78,7 +78,7 @@ export default class MicrophoneControls extends Component {
         <div className={styles}>
           <div className="microphone-container">
             <div className="microphone-volume"></div>
-            <ReactMic strokeColor="#FF4081" backgroundColor="#000000" height={80} />
+            <ReactMic className="recording-line" strokeColor="#0096ef" backgroundColor="#414141" height={80} />
           </div>
           <Button
             className="btn"
