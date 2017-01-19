@@ -6,9 +6,13 @@
 @import 'typography';
 @import 'links';
 
+html, body{
+  height: 100%;
+  position: relative;
+}
+
 :global(body) {
 
-	position: relative;
   background: $lightGrey;
   color: $white;
 
@@ -36,7 +40,6 @@
   }
 
   .container{
-    width: 1350px;
     padding: 20px;
   }
 
@@ -48,10 +51,4 @@
     border-radius: $border-radius;
   }
 
-}
-
-@media (max-width: 1414px) {
-  .container {
-    width: 100% !important;
-  }
 }
