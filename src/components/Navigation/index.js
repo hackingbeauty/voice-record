@@ -55,6 +55,7 @@ class Navigation extends Component {
     return(
       <div className={styles}>
         <Tabs
+          className="tabs"
           value={this.state.slideIndex}
           onChange={this.handleChange}>
           <Tab

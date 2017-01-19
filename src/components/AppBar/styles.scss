@@ -1,3 +1,8 @@
-:local(.styles) {
+@import '../../containers/App/styles/variables';
 
+:local(.styles) {
+  .app-bar {
+    background: $darkGrey !important;
+    margin-top: -5px;
+  }
 }

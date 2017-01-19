@@ -9,6 +9,8 @@
 :global(body) {
 
 	position: relative;
+  background: $lightGrey;
+  color: $white;
 
   img {
     max-width: 100%;
@@ -35,6 +37,7 @@
 
   .container{
     width: 1350px;
+    padding: 20px;
   }
 
   .error {
