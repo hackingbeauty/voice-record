@@ -1,3 +1,9 @@
+@import '../../containers/App/styles/variables';
+
 :local(.styles) {
+
+  .btn {
+    background-color: $lightGrey !important;
+  }
 
 }
