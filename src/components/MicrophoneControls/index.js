@@ -57,10 +57,7 @@ export default class Microphone extends Component {
     if(this.state.recording) {
       return (
         <div className={styles}>
-          <div className="microphone-container">
-            <div className="microphone-volume"></div>
-            <ReactMic className="recording-line" strokeColor="##0096ef" backgroundColor="#414141" height={80} />
-          </div>
+          <ReactMic className="recording-line" strokeColor="##0096ef" backgroundColor="#414141" height={80} />
           <span onTouchTap={this.stopMicrophone}>stop</span>
           <Button
             className="btn"
@@ -76,10 +73,7 @@ export default class Microphone extends Component {
     } else {
       return (
         <div className={styles}>
-          <div className="microphone-container">
-            <div className="microphone-volume"></div>
-            <ReactMic className="recording-line" strokeColor="#0096ef" backgroundColor="#414141" height={80} />
-          </div>
+          <ReactMic className="recording-line" strokeColor="#0096ef" backgroundColor="#414141" height={80} />
           <Button
             className="btn"
             onTouchTap={this.startMicrophone}
