@@ -12,7 +12,6 @@ export default class Microphone extends Component {
   constructor(props) {
     super(props);
     this.startMicrophone = this.startMicrophone.bind(this);
-    this.stopMicrophone = this.stopMicrophone.bind(this);
     this.saveRecording = this.saveRecording.bind(this);
     this.state = {
       recording: false
@@ -39,10 +38,6 @@ export default class Microphone extends Component {
     });
   }
 
-  stopMicrophone() {
-    alert('stopping microphone');
-  }
-
   saveRecording() {
     const self = this;
 
@@ -62,9 +57,8 @@ export default class Microphone extends Component {
       <div className={styles}>
         <ReactMic
           className="recording-line"
-          strokeColor="##0096ef"
-          backgroundColor="#414141"
-          height={80} />
+          strokeColor="#0096ef"
+          backgroundColor="#414141"/>
       </div>
     );
   }
