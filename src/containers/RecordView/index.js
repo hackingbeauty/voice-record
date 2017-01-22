@@ -11,43 +11,25 @@ import { styles } from './styles.scss';
 class RecordView extends Component {
   constructor(props){
     super(props);
-    this.startMicrophone = this.startMicrophone.bind(this);
+    this.toggleMicrophone = this.toggleMicrophone.bind(this);
     this.state = {
       startTimer: false,
       recording: false
     }
   }
 
-  startMicrophone() {
+  toggleMicrophone() {
     this.setState({
-      startTimer: true,
-      recording: true
+      startTimer: !this.state.startTimer,
+      recording: !this.state.recording
     });
   }
 
   render() {
-    let recordButton;
-    if(this.state.recording) {
-      recordButton = (
-        <Button
-          className="btn"
-          onTouchTap={this.startMicrophone}
-          secondary={true}
-          raised={true}
-          floating={true}
-          icon={<Pause  />} />
-      );
-    } else {
-      recordButton = (
-        <Button
-          className="btn"
-          onTouchTap={this.startMicrophone}
-          secondary={true}
-          raised={true}
-          floating={true}
-          icon={<Microphone  />} />
-      );
-    }
+    let btnIcon;
+
+    this.state.recording ? btnIcon = <Pause/> : btnIcon = <Microphone/>;
+
     return (
       <div className={styles}>
         <div id="spectrogram">
@@ -55,7 +37,13 @@ class RecordView extends Component {
         </div>
         <div id="controls">
           <ReactSimpleTimer play={this.state.startTimer} />
-          {recordButton}
+          <Button
+            className="btn"
+            onTouchTap={this.toggleMicrophone}
+            secondary={true}
+            raised={true}
+            floating={true}
+            icon={btnIcon} />
         </div>
       </div>
     );
