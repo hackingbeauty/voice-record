@@ -2,19 +2,22 @@ import React, { Component } from 'react';
 import { connect }          from 'react-redux';
 import MicrophoneControls   from 'components/MicrophoneControls';
 import ReactSimpleTimer     from 'react-simple-timer';
+import Button               from 'components/Button';
+import MicrophoneOn         from 'material-ui/svg-icons/av/mic';
+import MicrophoneOff        from 'material-ui/svg-icons/av/mic-off';
 
 import { styles } from './styles.scss';
 
 class RecordView extends Component {
   constructor(props){
     super(props);
-    this.whatever = this.whatever.bind(this);
+    this.startMicrophone = this.startMicrophone.bind(this);
     this.state = {
       startTimer: false
     }
   }
 
-  whatever() {
+  startMicrophone() {
     this.setState({
       startTimer: true
     });
@@ -27,7 +30,14 @@ class RecordView extends Component {
           <MicrophoneControls />
         </div>
         <ReactSimpleTimer play={this.state.startTimer} />
-        <button onTouchTap={this.whatever}>Start</button>
+        <Button
+            className="btn"
+            onTouchTap={this.startMicrophone}
+            secondary={true}
+            raised={true}
+            floating={true}
+            disabled={this.state.recording}
+            icon={<MicrophoneOff  />} />
       </div>
     );
   }

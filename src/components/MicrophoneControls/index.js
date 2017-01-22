@@ -3,11 +3,7 @@
  */
 
 import React, { Component } from 'react';
-import Button               from 'components/Button';
-import MicrophoneOn         from 'material-ui/svg-icons/av/mic';
-import MicrophoneOff        from 'material-ui/svg-icons/av/mic-off';
-import { ReactMic,
-         startRecording }   from 'react-mic';
+import { ReactMic }         from 'react-mic';
 
 /* component styles */
 import { styles } from './styles.scss';
@@ -54,36 +50,10 @@ export default class Microphone extends Component {
   }
 
   render() {
-    if(this.state.recording) {
-      return (
-        <div className={styles}>
-          <ReactMic className="recording-line" strokeColor="##0096ef" backgroundColor="#414141" height={80} />
-          <span onTouchTap={this.stopMicrophone}>stop</span>
-          <Button
-            className="btn"
-            onTouchTap={this.startMicrophone}
-            secondary={true}
-            raised={true}
-            floating={true}
-            disabled={this.state.recording}
-            icon={<MicrophoneOn  />} />
-          <span onTouchTap={this.saveRecording}>save</span>
-        </div>
-      );
-    } else {
-      return (
-        <div className={styles}>
-          <ReactMic className="recording-line" strokeColor="#0096ef" backgroundColor="#414141" height={80} />
-          <Button
-            className="btn"
-            onTouchTap={this.startMicrophone}
-            secondary={true}
-            raised={true}
-            floating={true}
-            disabled={this.state.recording}
-            icon={<MicrophoneOff  />} />
-        </div>
-      );
-    }
+    return (
+      <div className={styles}>
+        <ReactMic className="recording-line" strokeColor="##0096ef" backgroundColor="#414141" height={80} />
+      </div>
+    );
   }
 }
