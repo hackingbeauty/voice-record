@@ -4,13 +4,21 @@
 
   text-align: center;
 
-  .timer {
-    font-size: 750%;
-    color: $lightBlue;
+  #spectrogram-section {
+
   }
 
-  #microphone-section {
+  #controls {
+    position: absolute;
+    bottom: 30px;
+    width: 100%;
+    border-top: 1px solid $lighterGrey;
+    padding-top: 10px;
 
+    .timer {
+      font-size: 250%;
+      color: $lightBlue;
+    }
   }
 
 }

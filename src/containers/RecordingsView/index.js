@@ -11,7 +11,9 @@ class RecordingsView extends Component {
   render() {
     return (
       <div className={styles}>
-        Recordings View
+        <div className="container">
+          Recordings View
+        </div>
       </div>
     );
   }

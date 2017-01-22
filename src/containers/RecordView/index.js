@@ -29,15 +29,17 @@ class RecordView extends Component {
         <div id="microphone-section">
           <MicrophoneControls />
         </div>
-        <ReactSimpleTimer play={this.state.startTimer} />
-        <Button
-            className="btn"
-            onTouchTap={this.startMicrophone}
-            secondary={true}
-            raised={true}
-            floating={true}
-            disabled={this.state.recording}
-            icon={<MicrophoneOff  />} />
+        <div id="controls">
+          <ReactSimpleTimer play={this.state.startTimer} />
+          <Button
+              className="btn"
+              onTouchTap={this.startMicrophone}
+              secondary={true}
+              raised={true}
+              floating={true}
+              disabled={this.state.recording}
+              icon={<MicrophoneOff  />} />
+        </div>
       </div>
     );
   }

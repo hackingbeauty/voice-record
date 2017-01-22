@@ -67,18 +67,9 @@ class Navigation extends Component {
             value={1}>
           </Tab>
         </Tabs>
-        <SwipeableViews
-          index={this.state.slideIndex}
-          onChangeIndex={this.handleChange}>
-          <div id="view-1">
-            {content}
-          </div>
-          <div id="view=2">
-            <div className="container">
-              {content}
-            </div>
-          </div>
-        </SwipeableViews>
+        <div id="view-1">
+          {content}
+        </div>
       </div>
     );
   }
