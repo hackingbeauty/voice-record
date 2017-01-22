@@ -3,8 +3,8 @@ import { connect }          from 'react-redux';
 import MicrophoneControls   from 'components/MicrophoneControls';
 import ReactSimpleTimer     from 'react-simple-timer';
 import Button               from 'components/Button';
-import MicrophoneOn         from 'material-ui/svg-icons/av/mic';
-import MicrophoneOff        from 'material-ui/svg-icons/av/mic-off';
+import Pause                from 'material-ui/svg-icons/av/pause';
+import Microphone           from 'material-ui/svg-icons/av/mic';
 
 import { styles } from './styles.scss';
 
@@ -13,32 +13,49 @@ class RecordView extends Component {
     super(props);
     this.startMicrophone = this.startMicrophone.bind(this);
     this.state = {
-      startTimer: false
+      startTimer: false,
+      recording: false
     }
   }
 
   startMicrophone() {
     this.setState({
-      startTimer: true
+      startTimer: true,
+      recording: true
     });
   }
 
   render() {
+    let recordButton;
+    if(this.state.recording) {
+      recordButton = (
+        <Button
+          className="btn"
+          onTouchTap={this.startMicrophone}
+          secondary={true}
+          raised={true}
+          floating={true}
+          icon={<Pause  />} />
+      );
+    } else {
+      recordButton = (
+        <Button
+          className="btn"
+          onTouchTap={this.startMicrophone}
+          secondary={true}
+          raised={true}
+          floating={true}
+          icon={<Microphone  />} />
+      );
+    }
     return (
       <div className={styles}>
-        <div id="microphone-section">
+        <div id="spectrogram">
           <MicrophoneControls />
         </div>
         <div id="controls">
           <ReactSimpleTimer play={this.state.startTimer} />
-          <Button
-              className="btn"
-              onTouchTap={this.startMicrophone}
-              secondary={true}
-              raised={true}
-              floating={true}
-              disabled={this.state.recording}
-              icon={<MicrophoneOff  />} />
+          {recordButton}
         </div>
       </div>
     );
