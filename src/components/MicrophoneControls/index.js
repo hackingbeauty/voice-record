@@ -3,7 +3,7 @@
  */
 
 import React, { Component } from 'react';
-import { ReactMic }         from 'react-mic';
+import { ReactMic, startRecording, stopRecording }         from 'react-mic';
 
 /* component styles */
 import { styles } from './styles.scss';
@@ -16,6 +16,14 @@ export default class Microphone extends Component {
     this.saveRecording = this.saveRecording.bind(this);
     this.state = {
       recording: false
+    }
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if(nextProps.start) {
+      startRecording();
+    } else {
+      stopRecording();
     }
   }
 
@@ -52,7 +60,11 @@ export default class Microphone extends Component {
   render() {
     return (
       <div className={styles}>
-        <ReactMic className="recording-line" strokeColor="##0096ef" backgroundColor="#414141" height={80} />
+        <ReactMic
+          className="recording-line"
+          strokeColor="##0096ef"
+          backgroundColor="#414141"
+          height={80} />
       </div>
     );
   }

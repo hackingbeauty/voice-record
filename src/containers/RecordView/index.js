@@ -33,7 +33,7 @@ class RecordView extends Component {
     return (
       <div className={styles}>
         <div id="spectrogram">
-          <MicrophoneControls />
+          <MicrophoneControls start={this.state.recording} />
         </div>
         <div id="controls">
           <ReactSimpleTimer play={this.state.startTimer} />
