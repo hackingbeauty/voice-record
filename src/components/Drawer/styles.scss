@@ -1,0 +1,13 @@
+@import '../../containers/App/styles/variables';
+
+:local(.styles) {
+
+  position: relative;
+  z-index:10000;
+  width: 500px;
+  margin-top:-10px;
+
+  @media (max-width: 600px) {
+    width: 100% !important;
+  }
+}
