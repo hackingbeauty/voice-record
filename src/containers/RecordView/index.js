@@ -7,7 +7,7 @@ import Stop                 from 'material-ui/svg-icons/av/stop';
 import Microphone           from 'material-ui/svg-icons/av/mic';
 import Delete               from 'material-ui/svg-icons/action/delete';
 import Done                 from 'material-ui/svg-icons/action/done';
-
+import uuid                 from 'uuid';
 
 import { styles } from './styles.scss';
 
@@ -33,7 +33,8 @@ class RecordView extends Component {
   }
 
   saveRecording() {
-    alert('about to save recording');
+    const uniqueID= uuid.v1();
+    this.props.router.push(`/recording/${uniqueID}`);
   }
 
   deleteRecording() {
