@@ -2,10 +2,11 @@
  * Button - A common button
  */
 
-import React                                              from 'react';
-import { FlatButton as MaterialFlatButton,
-         RaisedButton as MaterialRaisedButton,
-         FloatingActionButton as MaterialFloatingButton } from 'material-ui';
+import React                    from 'react';
+import { FlatButton,
+         RaisedButton,
+         FloatingActionButton,
+         IconButton }           from 'material-ui';
 
 /* component styles */
 import { styles } from './styles.scss';
@@ -22,17 +23,19 @@ export default function Button(props) {
 function createButton(props) {
   let buttonElem;
   if(props.floating) {
-    buttonElem = <MaterialFloatingButton {...props} secondary={true} primary={false}>
+    buttonElem = <FloatingActionButton {...props} secondary={true} primary={false}>
                   {props.icon}
-                 </MaterialFloatingButton>
+                 </FloatingActionButton>
   } else if(props.floating && props.secondary) {
-    buttonElem = <MaterialFloatingdButton {...props} secondary={true} primary={false} />
+    buttonElem = <FloatingActionButton {...props} secondary={true} primary={false} />
+  } else if(props.iconOnly){
+    buttonElem= <IconButton {...props}>{props.icon}</IconButton>;
   } else if(props.raised && props.secondary) {
-    buttonElem = <MaterialRaisedButton {...props} secondary={true} primary={false} />
+    buttonElem = <RaisedButton {...props} secondary={true} primary={false} />
   } else if(props.raised) {
-    buttonElem = <MaterialRaisedButton {...props} />
+    buttonElem = <RaisedButton {...props} />
   } else {
-    buttonElem = <MaterialFlatButton {...props} />
+    buttonElem = <FlatButton {...props} />
   }
   return buttonElem;
 }

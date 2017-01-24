@@ -19,6 +19,33 @@
       font-size: 250%;
       color: $lightBlue;
     }
+
+    .buttons {
+      max-width: 200px;
+      margin:0 auto;
+      position: relative;
+      .btn {
+        &.secondary {
+          svg {
+            color: $white !important;
+          }
+          &.delete {
+            position: absolute !important;
+            top: 5px;
+            left: 0px;
+          }
+          &.save {
+            position: absolute !important;
+            top: 5px;
+            right: 0px;
+          }
+        }
+
+      }
+
+
+    }
+
   }
 
 }
