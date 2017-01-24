@@ -55,6 +55,7 @@ export default class Microphone extends Component {
   render() {
     return (
       <div className={styles}>
+        <div className="microphone-icon"></div>
         <ReactMic
           className="recording-line"
           strokeColor="#0096ef"
