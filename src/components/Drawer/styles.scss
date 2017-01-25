@@ -4,10 +4,14 @@
 
   position: relative;
   z-index:10000;
-  width: 500px;
-  margin-top:-10px;
+
+  .right-drawer {
+    width: 500px;
+  }
 
   @media (max-width: 600px) {
-    width: 100% !important;
+    .right-drawer  {
+      width: 100% !important;
+    }
   }
 }
