@@ -11,7 +11,7 @@ import { styles } from './styles.scss';
 export default function TextField(props) {
   return (
     <div className={styles}>
-      <MaterialTextField {...props} />
+      <input {...props} type="text" className="text-field" />
     </div>
   );
 }

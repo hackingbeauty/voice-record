@@ -170,9 +170,7 @@ class DetailsView extends Component {
               ref="textField"
               onKeyPress={this.onKeyPress}
               autoFocus
-              value={this.state.title}
-              className="details-view-text-input"
-              floatingLabelText="Enter a title for this recording" />
+              value={this.state.title}/>
           </div>
         </div>
       );
