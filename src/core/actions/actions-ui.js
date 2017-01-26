@@ -1,19 +1,28 @@
 import uiConstants from 'core/types/types-ui';
 
 /**
- * openNav - Open the side nav
+ * openLeftNav - Open the side nav
  */
-export function openNav() {
+export function openLeftNav() {
   return {
-    type: uiConstants.OPEN_NAV
+    type: uiConstants.OPEN_LEFT_NAV
   };
 }
 
 /**
- * closeNav - Close the side nav
+ * closeLeftNav - Close the side nav
  */
-export function closeNav() {
+export function closeLeftNav() {
   return {
-    type: uiConstants.CLOSE_NAV
+    type: uiConstants.CLOSE_LEFT_NAV
+  };
+}
+
+/**
+ * closeRightNav - Close the right nav
+ */
+export function closeRightNav() {
+  return {
+    type: types.CLOSE_RIGHT_NAV
   };
 }

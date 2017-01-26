@@ -16,11 +16,10 @@ class Header extends Component {
   }
 
   handleToggle() {
-    this.props.actions.ui.openNav();
+    this.props.actions.ui.openLeftNav();
   }
 
   render() {
-
     return (
       <div className={styles}>
         <header>

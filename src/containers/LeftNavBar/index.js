@@ -22,11 +22,10 @@ class LeftNavBar extends Component {
   }
 
   closeNav() {
-    this.props.actions.ui.closeNav();
+    this.props.actions.ui.closeLeftNav();
   }
 
   render() {
-
     return (
       <div className={styles} >
         <Drawer
