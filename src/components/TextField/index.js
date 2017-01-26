@@ -2,7 +2,8 @@
  * Text Field - A common Text Field
  */
 
-import React, { Component } from 'react';
+import React, { Component }          from 'react';
+import { TextField as MUITextField } from 'material-ui';
 
 /* component styles */
 import { styles } from './styles.scss';
@@ -25,8 +26,8 @@ class TextField extends Component {
   render() {
     return (
       <div className={styles}>
-        <input {...this.props}
-          type="text"
+        <MUITextField
+          {...this.props}
           onChange={this.onChange}
           className="text-field"
           value={this.state.inputValue} />
