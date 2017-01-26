@@ -17,12 +17,3 @@ export function closeLeftNav() {
     type: uiConstants.CLOSE_LEFT_NAV
   };
 }
-
-/**
- * closeRightNav - Close the right nav
- */
-export function closeRightNav() {
-  return {
-    type: types.CLOSE_RIGHT_NAV
-  };
-}

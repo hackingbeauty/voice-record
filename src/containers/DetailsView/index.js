@@ -69,7 +69,6 @@ class DetailsView extends Component {
   }
 
   closeNav() {
-    this.props.actions.ui.closeRightNav();
     this.props.router.push('/recordings');
   }
 
@@ -163,7 +162,7 @@ class DetailsView extends Component {
       return(
         <div>
           <header>
-            <IconButton className="btn"><NavigationClose onTouchTap={this.closeNav}/></IconButton>
+            <IconButton className="btn" onTouchTap={this.closeNav}><NavigationClose/></IconButton>
           </header>
           <div className="details-view-body">
             <TextField
@@ -179,7 +178,7 @@ class DetailsView extends Component {
       return(
         <div>
           <header>
-            <IconButton className="btn"><NavigationClose onTouchTap={this.closeNav}/></IconButton>
+            <IconButton className="btn" onTouchTap={this.closeNav}><NavigationClose /></IconButton>
           </header>
           <div className="details-view-body">
             <span>{this.state.title}</span>
