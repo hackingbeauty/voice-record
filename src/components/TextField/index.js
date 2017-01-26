@@ -2,19 +2,40 @@
  * Text Field - A common Text Field
  */
 
-import React                              from 'react';
-import { TextField as MaterialTextField } from 'material-ui';
+import React, { Component } from 'react';
 
 /* component styles */
 import { styles } from './styles.scss';
 
-export default function TextField(props) {
-  return (
-    <div className={styles}>
-      <input {...props} type="text" className="text-field" />
-    </div>
-  );
+class TextField extends Component {
+  constructor(props) {
+    super(props);
+    this.onChange = this.onChange.bind(this);
+    this.state = {
+      inputValue: ''
+    }
+  }
+
+  onChange(event) {
+    this.setState({
+      inputValue: event.target.value
+    });
+  }
+
+  render() {
+    return (
+      <div className={styles}>
+        <input {...this.props}
+          type="text"
+          onChange={this.onChange}
+          className="text-field"
+          value={this.state.inputValue} />
+      </div>
+    );
+  }
+
 }
+
 
 TextField.propTypes = {
   hintText: React.PropTypes.string,
@@ -24,3 +45,5 @@ TextField.propTypes = {
 TextField.defaultProps = {
   type: 'text'
 }
+
+export default TextField;
