@@ -27,39 +27,10 @@ class DetailsView extends Component {
     this.closeNav = this.closeNav.bind(this);
     this.onKeyPress = this.onKeyPress.bind(this);
     this.saveAudio = this.saveAudio.bind(this);
-    this.playAudio = this.playAudio.bind(this);
     this.state = {
-      idExists  : false,
-      title     : '',
-      blobURL   : '',
-      currentID : null
-    }
-  }
-
-  componentWillReceiveProps() {
-    const self = this;
-    this.setState({
-      currentID: self.props.location.pathname.split('/')[2]
-    }, () => {
-      this.checkIfAudioAlreadyExists();
-    });
-  }
-
-  checkIfAudioAlreadyExists() {
-    const currentID = this.state.currentID;
-    const audioList = this.props.audio.list;
-
-    for(let i=0;i<audioList.length;i++) {
-      let audioItem = audioList[i];
-
-      if(audioItem.id.includes(currentID)) {
-        this.setState({
-          idExists : true,
-          id       : audioItem.id,
-          title    : audioItem.title || audioItem.value.title,
-          blob     : audioItem.blob || audioItem.value.blob
-        });
-      }
+      title   : '',
+      blobURL : '',
+      inputValue : ''
     }
   }
 
@@ -67,30 +38,18 @@ class DetailsView extends Component {
     this.props.router.push('/recordings');
   }
 
-
-
   onKeyPress(event) {
     if(event.key === 'Enter') {
       this.saveAudio();
-    }
-  }
-
-  saveAudio(){
-    const inputValue = this.refs.textField.state.value;
-    const id = this.props.location.pathname.split('/')[2];
-
-    if(this.state.blob) {
-      this.saveAudioWithTitle(id, inputValue, this.state.blob);
-      this.props.actions.ui.openNotification('Label changed');
     } else {
-      const recordedBlob = saveRecording();
-      this.saveAudioWithTitle(id, inputValue, recordedBlob);
-      this.props.actions.ui.openNotification('Recording saved');
+      this.setState({
+        inputValue: event.target.value
+      });
     }
   }
 
-  playAudio() {
-    this.refs.audioSource.play();
+  saveAudio() {
+    const inputValue = this.state.inputValue;
   }
 
   getSubHeader() {
@@ -128,7 +87,7 @@ class DetailsView extends Component {
               ref="textField"
               onKeyPress={this.onKeyPress}
               autoFocus
-              value={this.state.title} />
+              value={this.state.inputValue} />
           </div>
         </div>
       );
