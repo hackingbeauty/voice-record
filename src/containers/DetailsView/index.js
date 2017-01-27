@@ -50,29 +50,7 @@ class DetailsView extends Component {
 
   saveAudio() {
     const inputValue = this.state.inputValue;
-  }
-
-  getSubHeader() {
-    if (this.state.idExists) {
-      const blob = URL.createObjectURL(this.state.blob);
-
-      return (
-        <ul>
-          <IconButton onTouchTap={this.delete}><Delete color="white" /></IconButton>
-          <IconButton>
-            <a ref="downloadLink" href={blob} download={`${this.state.currentID}.webm`}>
-              <Download color="white" />
-            </a>
-          </IconButton>
-        </ul>
-      );
-    } else {
-      return (
-        <ul>
-          <IconButton><Checkmark color="white"/></IconButton>
-        </ul>
-      );
-    }
+    //call action...pass titile of recording and bloburl right here
   }
 
   getContent() {
