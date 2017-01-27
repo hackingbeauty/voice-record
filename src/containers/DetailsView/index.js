@@ -17,6 +17,8 @@ import { saveRecording }      from 'react-mic';
 
 /* actions */
 import * as uiActionCreators    from 'core/actions/actions-ui';
+import * as audioActionCreators from 'core/actions/actions-audio';
+
 
 /* component styles */
 import { styles } from './styles.scss';
@@ -50,7 +52,14 @@ class DetailsView extends Component {
 
   saveAudio() {
     const inputValue = this.state.inputValue;
-    //call action...pass titile of recording and bloburl right here
+    const id = 123;
+    const audioBlob ='';
+
+    if(inputValue) {
+      this.props.actions.audio.saveAudio(id,inputValue, audioBlob);
+    } else {
+      this.props.actions.audio.saveAudio(id,'Untitled', audioBlob);
+    }
   }
 
   getContent() {
@@ -118,7 +127,8 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
   return {
     actions: {
-      ui: bindActionCreators(uiActionCreators, dispatch)
+      ui: bindActionCreators(uiActionCreators, dispatch),
+      audio: bindActionCreators(audioActionCreators, dispatch)
     }
   };
 }
