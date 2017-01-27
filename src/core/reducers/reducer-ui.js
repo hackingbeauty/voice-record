@@ -1,4 +1,4 @@
-import uiConstants from 'core/types/types-ui';
+import uiConstants from 'core/types';
 
 const initialState = {
   leftNavOpen: false
