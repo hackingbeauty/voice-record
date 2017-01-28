@@ -10,22 +10,7 @@ class Navigation extends Component {
     super(props);
     this.handleChange = this.handleChange.bind(this);
     this.state = {
-      slideIndex: 0
-    }
-  }
-
-
-  handleRoute() {
-    const { route } = this.props;
-    switch(route) {
-      case 'record':
-        this.handleChange(0, false);
-        break
-      case 'recordings':
-        this.handleChange(1, false);
-        break;
-      default:
-        break;
+      currentRoute: 'record'
     }
   }
 
@@ -33,25 +18,41 @@ class Navigation extends Component {
     this.handleRoute();
   }
 
-  componentWillReceiveProps(nextProps){
+  componentWillReceiveProps(){
     this.handleRoute();
   }
 
-  handleChange(index, routeToURL) {
-    this.setState({
-      slideIndex: index
-    });
+  handleRoute() {
+    const { route } = this.props;
 
-    if(routeToURL !== false) { this.pushRoute(index) };
+    switch(route) {
+      case 'record':
+        this.handleChange('record', false);
+        break
+      case 'recordings':
+        this.handleChange('recordings', false);
+        break;
+      default:
+        break;
+    }
   }
 
-  pushRoute(index){
+  handleChange(route, routeToURL) {
+    this.setState({
+      currentRoute: route
+    });
+
+    if(routeToURL !== false) { this.pushRoute(route) };
+  }
+
+  pushRoute(route){
     const { router } = this.props;
-    switch(index){
-      case 0:
+
+    switch(route){
+      case 'record':
         router.push('/record');
         break;
-      case 1:
+      case 'recordings':
         router.push('/recordings');
         break;
       default:
@@ -66,15 +67,15 @@ class Navigation extends Component {
       <div className={styles}>
         <Tabs
           className="tabs"
-          value={this.state.slideIndex}
+          value={this.state.currentRoute}
           onChange={this.handleChange}>
           <Tab
             label="Record"
-            value={0}>
+            value={'record'}>
           </Tab>
           <Tab
             label="Listen"
-            value={1}>
+            value={'recordings'}>
           </Tab>
         </Tabs>
         <div id="view-1">
