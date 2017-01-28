@@ -15,26 +15,13 @@ class Navigation extends Component {
   }
 
   componentDidMount() {
-    this.handleRoute();
+    const { route } = this.props;
+    this.handleChange(route, false);
   }
 
   componentWillReceiveProps(){
-    this.handleRoute();
-  }
-
-  handleRoute() {
     const { route } = this.props;
-
-    switch(route) {
-      case 'record':
-        this.handleChange('record', false);
-        break
-      case 'recordings':
-        this.handleChange('recordings', false);
-        break;
-      default:
-        break;
-    }
+    this.handleChange(route, false);
   }
 
   handleChange(route, routeToURL) {
