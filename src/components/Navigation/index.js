@@ -1,7 +1,7 @@
 import React, { Component }   from 'react';
 import { Tabs, Tab }          from 'material-ui';
 import SwipeableViews         from 'react-swipeable-views';
-import { withRouter }         from 'react-router';
+import { withRouter }          from 'react-router';
 
 /* component styles */
 import { styles } from './styles.scss';
@@ -15,18 +15,27 @@ class Navigation extends Component {
     }
   }
 
-  componentDidMount() {
-    const currentRoute = this.props.router.location.pathname;
-    switch(currentRoute) {
-      case '/record':
+
+  handleRoute() {
+    const { route } = this.props;
+    switch(route) {
+      case 'record':
         this.handleChange(0, false);
         break
-      case '/recordings':
+      case 'recordings':
         this.handleChange(1, false);
         break;
       default:
         break;
     }
+  }
+
+  componentDidMount() {
+    this.handleRoute();
+  }
+
+  componentWillReceiveProps(nextProps){
+    this.handleRoute();
   }
 
   handleChange(index, routeToURL) {
@@ -51,7 +60,8 @@ class Navigation extends Component {
   }
 
   render() {
-    const content = this.props.content;
+    const { content } = this.props;
+
     return(
       <div className={styles}>
         <Tabs
