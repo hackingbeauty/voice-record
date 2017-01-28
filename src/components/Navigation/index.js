@@ -74,4 +74,15 @@ class Navigation extends Component {
 
 }
 
+Navigation.propTypes = {
+  route : React.PropTypes.string,
+  router : React.PropTypes.object,
+  content: React.PropTypes.object
+};
+
+Navigation.defaultProps = {
+  type: 'text'
+}
+
+
 export default Navigation;

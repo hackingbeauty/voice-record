@@ -37,7 +37,6 @@ class TextField extends Component {
 
 }
 
-
 TextField.propTypes = {
   hintText: React.PropTypes.string,
   type    : React.PropTypes.string
