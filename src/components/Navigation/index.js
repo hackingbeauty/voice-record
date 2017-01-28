@@ -1,7 +1,6 @@
 import React, { Component }   from 'react';
 import { Tabs, Tab }          from 'material-ui';
 import SwipeableViews         from 'react-swipeable-views';
-import { withRouter }          from 'react-router';
 
 /* component styles */
 import { styles } from './styles.scss';
@@ -47,12 +46,13 @@ class Navigation extends Component {
   }
 
   pushRoute(index){
+    const { router } = this.props;
     switch(index){
       case 0:
-        this.props.router.push('/record');
+        router.push('/record');
         break;
       case 1:
-        this.props.router.push('/recordings');
+        router.push('/recordings');
         break;
       default:
         break;
@@ -86,4 +86,4 @@ class Navigation extends Component {
 
 }
 
-export default withRouter(Navigation);
+export default Navigation;
