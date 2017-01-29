@@ -26,6 +26,12 @@ export function audioReducer(state = initialState, action) {
     });
   }
 
+  case types.GET_AUDIO_ITEMS: {
+    return Object.assign({}, state, {
+      list : action.list
+    });
+  }
+
   default:
     return state;
   }

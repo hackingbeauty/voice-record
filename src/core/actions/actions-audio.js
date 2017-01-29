@@ -26,3 +26,13 @@ export function saveAudio(id, title) {
   };
 }
 
+/**
+ * getItems - Get items from cached
+ */
+export function getItems(list) {
+  return {
+    type : types.GET_AUDIO_ITEMS,
+    list : list
+  }
+}
+

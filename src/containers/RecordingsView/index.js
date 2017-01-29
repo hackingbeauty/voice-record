@@ -1,14 +1,27 @@
-import React, { Component } from 'react';
-import { connect }          from 'react-redux';
-import { withRouter }       from 'react-router';
-import RecordedItem         from 'components/RecordedItem';
-import EmptyState           from 'components/EmptyState';
+import React, { Component }   from 'react';
+import { connect }            from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { withRouter }         from 'react-router';
+import RecordedItem           from 'components/RecordedItem';
+import EmptyState             from 'components/EmptyState';
+import { getAll }             from 'core/libs/lib-cache';
+
+/* actions */
+import * as audioActionCreators from 'core/actions/actions-audio';
 
 import { styles } from './styles.scss';
 
 class RecordingsView extends Component {
   constructor(props) {
     super(props);
+  }
+
+  componentDidMount() {
+    const { actions } = this.props;
+
+    getAll().then((list) => {
+      actions.audio.getItems(list);
+    });
   }
 
   getRecordings() {
@@ -55,4 +68,12 @@ function mapStateToProps(state) {
   };
 }
 
-export default connect(mapStateToProps)(withRouter(RecordingsView));
+function mapDispatchToProps(dispatch) {
+  return {
+    actions: {
+      audio : bindActionCreators(audioActionCreators, dispatch)
+    }
+  };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(withRouter(RecordingsView));
