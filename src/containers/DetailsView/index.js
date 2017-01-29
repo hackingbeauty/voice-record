@@ -23,8 +23,6 @@ import { styles } from './styles.scss';
 class DetailsView extends Component {
   constructor(props) {
     super(props);
-    this.closeNav = this.closeNav.bind(this);
-    this.onKeyPress = this.onKeyPress.bind(this);
     this.saveAudio = this.saveAudio.bind(this);
     this.state = {
       inputValue : '',
@@ -51,11 +49,11 @@ class DetailsView extends Component {
     return currentId;
   }
 
-  closeNav() {
+  closeNav= () => {
     this.props.router.push('/recordings');
   }
 
-  onKeyPress(event) {
+  onKeyPress= (event) => {
     if(event.key === 'Enter') {
       this.saveAudio();
     } else {
@@ -82,6 +80,10 @@ class DetailsView extends Component {
     })
   }
 
+  playAudio = () => {
+    this.refs.audioSource.play();
+  }
+
   getContent() {
     const { audioBlob } = this.state;
     const header = (
@@ -104,7 +106,7 @@ class DetailsView extends Component {
             onTouchTap={this.playAudio}
             secondary={true} />
           <audio ref="audioSource" controls="controls">
-            <source src={audioBlob.blob} type="audio/webm" />
+            <source src={audioBlob.blobURL} type="audio/webm" />
           </audio>
         </div>
       );
