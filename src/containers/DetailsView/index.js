@@ -8,9 +8,6 @@ import Drawer                 from 'components/Drawer';
 import AppBar                 from 'components/AppBar';
 import TextField              from 'components/TextField';
 import NavigationClose        from 'material-ui/svg-icons/navigation/close';
-import Delete                 from 'material-ui/svg-icons/action/delete';
-import Edit                   from 'material-ui/svg-icons/editor/mode-edit';
-import Download               from 'material-ui/svg-icons/file/file-download';
 import PlayButton             from 'material-ui/svg-icons/av/play-arrow';
 import Checkmark              from 'material-ui/svg-icons/action/check-circle';
 import { saveRecording }      from 'react-mic';
@@ -30,10 +27,28 @@ class DetailsView extends Component {
     this.onKeyPress = this.onKeyPress.bind(this);
     this.saveAudio = this.saveAudio.bind(this);
     this.state = {
-      title   : '',
-      blobURL : '',
-      inputValue : ''
+      inputValue : '',
+      audioBlob  : null
     }
+  }
+
+  componentWillReceiveProps() {
+    const { list } = this.props.audio;
+
+    if(list.length){
+      const audioBlob = list.find((item)=> {
+        return item.id === this.getCurrentId();
+      });
+      this.setState({
+        audioBlob: audioBlob
+      });
+    }
+  }
+
+  getCurrentId() {
+    const { pathname } = this.props.router.location;
+    const currentId = pathname.split('/')[2];
+    return currentId;
   }
 
   closeNav() {
@@ -51,42 +66,37 @@ class DetailsView extends Component {
   }
 
   saveAudio() {
-    const inputValue = this.state.inputValue;
-    const id = 123;
-    const audioBlob ='';
+    const { inputValue } = this.state;
+    const currentId = this.getCurrentId();
+    let title;
 
     if(inputValue) {
-      this.props.actions.audio.saveAudio(id,inputValue, audioBlob);
+      title = inputValue;
+      this.props.actions.audio.saveAudio(currentId, title);
     } else {
-      this.props.actions.audio.saveAudio(id,'Untitled', audioBlob);
+      title='Untitled';
+      this.props.actions.audio.saveAudio(currentId, title);
     }
+    this.setState({
+      title: title
+    })
   }
 
   getContent() {
-    if(!this.state.idExists) {
+    const { audioBlob } = this.state;
+    const header = (
+      <header>
+        <IconButton className="btn" onTouchTap={this.closeNav}>
+          <NavigationClose/>
+        </IconButton>
+      </header>);
+
+    if(audioBlob) {
       return(
         <div>
-          <header>
-            <IconButton className="btn" onTouchTap={this.closeNav}><NavigationClose/></IconButton>
-          </header>
+          {header}
           <div className="details-view-body">
-            <TextField
-              ref="textField"
-              onKeyPress={this.onKeyPress}
-              autoFocus
-              value={this.state.inputValue} />
-          </div>
-        </div>
-      );
-    } else if(this.state.idExists && this.state.blob) {
-      const blob = URL.createObjectURL(this.state.blob);
-      return(
-        <div>
-          <header>
-            <IconButton className="btn" onTouchTap={this.closeNav}><NavigationClose /></IconButton>
-          </header>
-          <div className="details-view-body">
-            <span>{this.state.title}</span>
+            <span>{audioBlob.title}</span>
           </div>
           <Button
             floating={true}
@@ -94,8 +104,22 @@ class DetailsView extends Component {
             onTouchTap={this.playAudio}
             secondary={true} />
           <audio ref="audioSource" controls="controls">
-            <source src={blob} type="audio/webm" />
+            <source src={audioBlob.blob} type="audio/webm" />
           </audio>
+        </div>
+      );
+    } else {
+      return(
+        <div>
+          {header}
+          <div className="details-view-body">
+            <TextField
+              ref="textField"
+              onKeyPress={this.onKeyPress}
+              autoFocus
+              hintText="Enter a Title"
+              value={this.state.inputValue} />
+          </div>
         </div>
       );
     }
@@ -103,6 +127,7 @@ class DetailsView extends Component {
 
   render() {
     const content = this.getContent();
+
     return (
       <div className={styles}>
         <Drawer
@@ -127,10 +152,10 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
   return {
     actions: {
-      ui: bindActionCreators(uiActionCreators, dispatch),
-      audio: bindActionCreators(audioActionCreators, dispatch)
+      ui    : bindActionCreators(uiActionCreators, dispatch),
+      audio : bindActionCreators(audioActionCreators, dispatch)
     }
   };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(withRouter(DetailsView));
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(withRouter(DetailsView)));
