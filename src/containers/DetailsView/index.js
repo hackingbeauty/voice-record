@@ -29,7 +29,15 @@ class DetailsView extends Component {
     }
   }
 
+  componentDidMount() {
+    this.findRecordId();
+  }
+
   componentWillReceiveProps() {
+   this.findRecordId();
+  }
+
+  findRecordId= () => {
     const { list } = this.props.audio;
 
     if(list.length){
@@ -48,7 +56,7 @@ class DetailsView extends Component {
     return currentId;
   }
 
-  closeNav= () => {
+  closeNav = () => {
     this.props.router.push('/recordings');
   }
 

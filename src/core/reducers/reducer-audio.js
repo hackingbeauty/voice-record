@@ -4,7 +4,7 @@ const initialState = {
   list    : [],
   id      : '',
   blob    : null,
-  bloblURL: ''
+  blobURL : ''
 };
 
 export function audioReducer(state = initialState, action) {

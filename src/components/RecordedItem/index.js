@@ -10,8 +10,8 @@ import { styles } from './styles.scss';
 
 export default function RecordedItem(props) {
   const { id } = props.item;
-  const { title } = props.item.value;
-  const { size } = props.item.value;
+  const { title } = props.item;
+  const { size } = props.item;
 
   return (
     <div className={styles}>
