@@ -12,7 +12,8 @@ export function saveAudio(id, title) {
   set(id, {
     title   : title,
     blob    : recordedBlob,
-    blolbURL: blobURL
+    blolbURL: blobURL,
+    size    : recordedBlob.size
   });
 
   return {
@@ -21,7 +22,8 @@ export function saveAudio(id, title) {
     value  : {
       title   : title,
       blob    : recordedBlob,
-      blobURL : blobURL
+      blobURL : blobURL,
+      size    : recordedBlob.size
     }
   };
 }

@@ -9,11 +9,16 @@ import { Link } from 'react-router';
 import { styles } from './styles.scss';
 
 export default function RecordedItem(props) {
+  const { id } = props.item;
+  const { title } = props.item.value;
+  const { size } = props.item.value;
+
   return (
     <div className={styles}>
-      <div className="recorded-item">
-        <Link to={`/recording/${props.id}`}>{props.title}</Link>
-      </div>
+      <Link to={`/recording/${id}`} className="recorded-item">
+        <span>{title}</span>
+        <span className="recorded-item-size">{(size/1000000).toFixed(2)} MB</span>
+      </Link>
     </div>
   );
 }

@@ -3,9 +3,17 @@
 :local(.styles) {
 
   .recorded-item {
+    position: relative;
     font-size: 18px;
     border-bottom:1px solid $lighterGrey;
     padding: 20px;
+    cursor: pointer;
+    display: block;
+  }
+
+  .recorded-item-size {
+    position: absolute;
+    right: 20px;
   }
 
 }

@@ -75,9 +75,6 @@ class DetailsView extends Component {
       title='Untitled';
       this.props.actions.audio.saveAudio(currentId, title);
     }
-    this.setState({
-      title: title
-    })
   }
 
   playAudio = () => {
