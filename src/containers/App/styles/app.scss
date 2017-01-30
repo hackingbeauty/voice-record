@@ -16,6 +16,10 @@ html, body{
   background: $lightGrey;
   color: $white;
 
+  a {
+    color: inherit;
+  }
+
   img {
     max-width: 100%;
   }
@@ -39,7 +43,7 @@ html, body{
     border: none;
   }
 
-  .container{
+  .container {
     padding: 20px;
   }
 
@@ -49,6 +53,12 @@ html, body{
     display: inline-block;
     padding: 5px 10px;
     border-radius: $border-radius;
+  }
+
+  @media (max-width: 1000px) {
+    .container  {
+      padding: 0px;
+    }
   }
 
 }

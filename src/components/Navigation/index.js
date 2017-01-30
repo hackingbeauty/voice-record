@@ -65,7 +65,7 @@ class Navigation extends Component {
             value={'recordings'}>
           </Tab>
         </Tabs>
-        <div id="view-1">
+        <div>
           {content}
         </div>
       </div>

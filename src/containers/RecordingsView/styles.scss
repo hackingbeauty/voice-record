@@ -1,0 +1,12 @@
+@import '../../containers/App/styles/variables';
+
+:local(.styles) {
+
+  width: 50%;
+  margin: 0 auto;
+
+  @media (max-width: 1000px) {
+    width: 100%;
+  }
+
+}

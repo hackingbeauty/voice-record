@@ -37,7 +37,9 @@ class RecordingsView extends Component {
   }
 
   displayRecordings() {
-    if(this.props.audio.list.length) {
+    const { list } = this.props.audio;
+
+    if(list && list.length) {
       const audioItems = this.getRecordings();
       return (
         <ul>{audioItems}</ul>
@@ -54,7 +56,7 @@ class RecordingsView extends Component {
 
     return (
       <div className={styles}>
-        <div className="content-container add-padding">
+        <div className="container">
           {recordings}
         </div>
       </div>
