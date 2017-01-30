@@ -16,7 +16,6 @@ import { saveRecording }      from 'react-mic';
 import * as uiActionCreators    from 'core/actions/actions-ui';
 import * as audioActionCreators from 'core/actions/actions-audio';
 
-
 /* component styles */
 import { styles } from './styles.scss';
 
@@ -85,25 +84,29 @@ class DetailsView extends Component {
     const { audioBlob } = this.state;
     const header = (
       <header>
-        <IconButton className="btn" onTouchTap={this.closeNav}>
+        <IconButton className="btn close" onTouchTap={this.closeNav}>
           <NavigationClose/>
         </IconButton>
       </header>);
 
     if(audioBlob) {
+      const { title } = this.state.audioBlob;
+      const { blobURL } = this.state.audioBlob;
+
       return(
         <div>
           {header}
           <div className="details-view-body">
-            <span>{audioBlob.title}</span>
+            <span>{title}</span>
           </div>
           <Button
+            className="btn play"
             floating={true}
             icon={<PlayButton />}
             onTouchTap={this.playAudio}
             secondary={true} />
           <audio ref="audioSource" controls="controls">
-            <source src={audioBlob.blobURL} type="audio/webm" />
+            <source src={blobURL} type="audio/webm" />
           </audio>
         </div>
       );

@@ -24,10 +24,17 @@
     opacity:0.4;
   }
 
-  .btn {
+  .btn.close {
     svg {
       color: $white !important;
     }
+  }
+
+  .btn.play {
+      position: absolute;
+    top: 222px;
+    right: 60px;
+    z-index: 10;
   }
 
   .details-view-body {
