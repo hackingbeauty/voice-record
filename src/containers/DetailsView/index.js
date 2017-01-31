@@ -95,49 +95,47 @@ class DetailsView extends Component {
 
   getContent() {
     const { audioBlob } = this.state;
-    const header = (
-      <header>
-        <IconButton className="btn close" onTouchTap={this.closeNav}>
-          <NavigationClose/>
-        </IconButton>
-      </header>);
+    let body;
 
-    if(audioBlob) {
+    if(audioBlob === null) {
+      body = (<div>Processing</div>);
+
+    } else if (audioBlob) {
       const { title } = this.state.audioBlob;
       const { blobURL } = this.state.audioBlob;
 
-      return(
-        <div>
-          {header}
-          <div className="details-view-body">
-            <span>{title}</span>
-          </div>
-          <Button
-            className="btn play"
-            floating={true}
-            icon={<PlayButton />}
-            onTouchTap={this.playAudio}
-            secondary={true} />
-          <audio ref="audioSource" controls="controls">
-            <source src={blobURL} type="audio/webm" />
-          </audio>
-        </div>
-      );
+      body = (<div>
+              <span>{title}</span>
+              <Button
+                className="btn play"
+                floating={true}
+                icon={<PlayButton />}
+                onTouchTap={this.playAudio}
+                secondary={true} />
+              <audio ref="audioSource" controls="controls">
+                <source src={blobURL} type="audio/webm" />
+              </audio>
+            </div>);
     } else {
-      return(
-        <div>
-          {header}
-          <div className="details-view-body">
-            <TextField
+      body = (<TextField
               ref="textField"
               onKeyPress={this.onKeyPress}
               autoFocus
               hintText="Enter a Title"
-              value={this.state.inputValue} />
-          </div>
-        </div>
-      );
+              value={this.state.inputValue} />);
     }
+    return(
+      <div>
+        <header>
+          <IconButton className="btn close" onTouchTap={this.closeNav}>
+            <NavigationClose/>
+          </IconButton>
+        </header>
+        <div className="details-view-body">
+          {body}
+        </div>
+      </div>
+    );
   }
 
   render() {
