@@ -105,7 +105,7 @@ class DetailsView extends Component {
       const { blob } = this.state.audioBlob;
 
       body = (<div>
-              <span>{title}</span>
+              <span className="audio-title">{title}</span>
               <Button
                 className="btn play"
                 floating={true}
