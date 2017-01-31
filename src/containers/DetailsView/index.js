@@ -102,7 +102,7 @@ class DetailsView extends Component {
 
     } else if (audioBlob) {
       const { title } = this.state.audioBlob;
-      const { blobURL } = this.state.audioBlob;
+      const { blob } = this.state.audioBlob;
 
       body = (<div>
               <span>{title}</span>
@@ -113,7 +113,7 @@ class DetailsView extends Component {
                 onTouchTap={this.playAudio}
                 secondary={true} />
               <audio ref="audioSource" controls="controls">
-                <source src={blobURL} type="audio/webm" />
+                <source src={URL.createObjectURL(blob)} type="audio/webm" />
               </audio>
             </div>);
     } else {
