@@ -41,6 +41,12 @@
     padding: 20px;
   }
 
+  .progress-indicator {
+    svg circle {
+      stroke: $lightBlue !important;
+    }
+  }
+
   .details-view-text-input {
     margin-top: -20px;
     width: 100% !important;

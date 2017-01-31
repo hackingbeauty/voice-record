@@ -7,6 +7,7 @@ import Button                 from 'components/Button';
 import Drawer                 from 'components/Drawer';
 import AppBar                 from 'components/AppBar';
 import TextField              from 'components/TextField';
+import ProgressIndicator      from 'components/ProgressIndicator';
 import NavigationClose        from 'material-ui/svg-icons/navigation/close';
 import PlayButton             from 'material-ui/svg-icons/av/play-arrow';
 import Checkmark              from 'material-ui/svg-icons/action/check-circle';
@@ -51,6 +52,10 @@ class DetailsView extends Component {
       });
       this.setState({
         audioBlob: audioBlob
+      });
+    } else {
+      this.setState({
+        audioBlob: undefined
       });
     }
   }
@@ -98,7 +103,7 @@ class DetailsView extends Component {
     let body;
 
     if(audioBlob === null) {
-      body = (<div>Processing</div>);
+      body = (<div className="center"><ProgressIndicator /></div>);
 
     } else if (audioBlob) {
       const { title } = this.state.audioBlob;
