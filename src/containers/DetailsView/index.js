@@ -11,6 +11,7 @@ import NavigationClose        from 'material-ui/svg-icons/navigation/close';
 import PlayButton             from 'material-ui/svg-icons/av/play-arrow';
 import Checkmark              from 'material-ui/svg-icons/action/check-circle';
 import { saveRecording }      from 'react-mic';
+import { getAll }             from 'core/libs/lib-cache';
 
 /* actions */
 import * as uiActionCreators    from 'core/actions/actions-ui';
@@ -30,17 +31,21 @@ class DetailsView extends Component {
   }
 
   componentDidMount() {
-    this.findRecordId();
+    const { actions } = this.props;
+
+    getAll().then((list) => {
+      this.findRecordId(list);
+    });
   }
 
   componentWillReceiveProps() {
    this.findRecordId();
   }
 
-  findRecordId= () => {
-    const { list } = this.props.audio;
+  findRecordId= (listFromStorage) => {
+    const list = listFromStorage || this.props.audio.list;
 
-    if(list.length){
+    if(list && list.length){
       const audioBlob = list.find((item)=> {
         return item.id === this.getCurrentId();
       });
