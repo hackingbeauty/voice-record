@@ -1,6 +1,6 @@
 {
-  "short_name": "YOUR APP",
-  "name": "A DESCRIPTION OF YOUR APP",
+  "short_name": "Voice Record",
+  "name": "Talk audio notes",
   "start_url": "./?utm_source=web_app_manifest",
   "icons": [
     {
@@ -14,8 +14,8 @@
       "type": "image/png"
     }
   ],
-  "background_color": "#00BCD4",
-  "theme_color": "#00BCD4", //this is the splash screen background color
+  "background_color": "#212121",
+  "theme_color": "#212121", //this is the splash screen background color
   "display": "standalone",
   "orientation": "portrait"
 }
