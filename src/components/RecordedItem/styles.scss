@@ -2,6 +2,8 @@
 
 :local(.styles) {
 
+  font-size: 10px;
+
   .item {
     position: relative;
     font-size: 18px;
@@ -13,9 +15,16 @@
 
   .title {
     margin-bottom: 5px;
-    &::first-letter{
+    &::first-letter {
       text-transform: capitalize;
     }
+  }
+
+  .length,
+  .created-at,
+  .size {
+    font-size: 15px;
+    color: $white35;
   }
 
   .length {

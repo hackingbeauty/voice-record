@@ -21,7 +21,7 @@ export default function RecordedItem(props) {
     <div className={styles}>
       <Link to={`/recording/${id}`} className="item">
         <div className="title">{title}</div>
-        <div>{createdAt}</div>
+        <div className="created-at">{createdAt}</div>
         <div className="length">{length}</div>
         <div className="size">{totalSize} MB</div>
       </Link>
