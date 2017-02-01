@@ -4,7 +4,8 @@ const initialState = {
   list    : [],
   id      : '',
   blob    : null,
-  blobURL : ''
+  blobURL : '',
+  startTime : null
 };
 
 export function audioReducer(state = initialState, action) {
@@ -13,10 +14,11 @@ export function audioReducer(state = initialState, action) {
   case types.SAVE_AUDIO: {
 
     state.list.push({ //Is this a mutation?
-      id      : action.id,
-      title   : action.value.title,
-      blob    : action.value.blob,
-      blobURL : action.value.blobURL
+      id        : action.id,
+      title     : action.value.title,
+      blob      : action.value.blob,
+      blobURL   : action.value.blobURL,
+      startTime : action.value.startTime
     });
 
     const audioList = state.list;

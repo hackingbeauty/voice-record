@@ -15,11 +15,13 @@ export function getAll() {
   return localforage.iterate((value, id, iterationNum) => {
 
     storedItems.push({
-      id: id,
-      title: value.title,
-      blob: value.blob,
-      blobURL: value.blobURL,
-      size: value.size});
+      id        : id,
+      title     : value.title,
+      blob      : value.blob,
+      blobURL   : value.blobURL,
+      startTime : value.startTime,
+      size      : value.size
+    });
 
   }).then(() => {
     return storedItems;

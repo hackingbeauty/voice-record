@@ -56,7 +56,9 @@
   .audio-title {
     margin-bottom: 20px;
     display: block;
-    text-transform: capitalize;
+    &::first-letter {
+      text-transform: capitalize;
+    }
   }
 
 }

@@ -2,7 +2,7 @@
 
 :local(.styles) {
 
-  .recorded-item {
+  .item {
     position: relative;
     font-size: 18px;
     border-bottom:1px solid $lighterGrey;
@@ -11,8 +11,17 @@
     display: block;
   }
 
-  .recorded-item-size {
+  .title {
+    margin-bottom: 5px;
+    &::first-letter{
+      text-transform: capitalize;
+    }
+  }
+
+
+  .size {
     position: absolute;
+    bottom: 20px;
     right: 20px;
   }
 

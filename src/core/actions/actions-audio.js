@@ -6,24 +6,27 @@ import { set }           from 'core/libs/lib-cache';
  * saveAudio - Save an audio file
  */
 export function saveAudio(id, title) {
-  const recordedBlob = saveRecording();
+  const blobObject = saveRecording();
+  const recordedBlob = blobObject.blob;
   const blobURL = URL.createObjectURL(recordedBlob);
 
   set(id, {
-    title   : title,
-    blob    : recordedBlob,
-    blobURL : blobURL,
-    size    : recordedBlob.size
+    title     : title,
+    blob      : recordedBlob,
+    blobURL   : blobURL,
+    size      : recordedBlob.size,
+    startTime : blobObject.startTime
   });
 
   return {
     type   : types.SAVE_AUDIO,
     id     : id,
     value  : {
-      title   : title,
-      blob    : recordedBlob,
-      blobURL : blobURL,
-      size    : recordedBlob.size
+      title     : title,
+      blob      : recordedBlob,
+      blobURL   : blobURL,
+      size      : recordedBlob.size,
+      startTime : blobObject.startTime
     }
   };
 }

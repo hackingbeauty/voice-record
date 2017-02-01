@@ -26,6 +26,7 @@ class RecordingsView extends Component {
 
   getRecordings() {
     const audioItems = [];
+
     this.props.audio.list.map((audioItem) => {
       audioItems.push(<li key={audioItem.id}>
                         <RecordedItem item={audioItem} />
