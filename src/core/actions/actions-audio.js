@@ -15,19 +15,19 @@ export function saveAudio(id, title) {
     blob      : recordedBlob,
     blobURL   : blobURL,
     size      : recordedBlob.size,
-    startTime : blobObject.startTime
+    startTime : blobObject.startTime,
+    stopTime  : blobObject.stopTime
   });
 
   return {
-    type   : types.SAVE_AUDIO,
-    id     : id,
-    value  : {
-      title     : title,
-      blob      : recordedBlob,
-      blobURL   : blobURL,
-      size      : recordedBlob.size,
-      startTime : blobObject.startTime
-    }
+    type      : types.SAVE_AUDIO,
+    id        : id,
+    title     : title,
+    blob      : recordedBlob,
+    blobURL   : blobURL,
+    size      : recordedBlob.size,
+    startTime : blobObject.startTime,
+    stopTime  : blobObject.stopTime
   };
 }
 

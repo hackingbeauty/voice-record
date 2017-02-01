@@ -15,10 +15,11 @@ export function audioReducer(state = initialState, action) {
 
     state.list.push({ //Is this a mutation?
       id        : action.id,
-      title     : action.value.title,
-      blob      : action.value.blob,
-      blobURL   : action.value.blobURL,
-      startTime : action.value.startTime
+      title     : action.title,
+      blob      : action.blob,
+      blobURL   : action.blobURL,
+      startTime : action.startTime,
+      stopTime  : action.stopTime
     });
 
     const audioList = state.list;
