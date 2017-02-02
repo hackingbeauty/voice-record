@@ -74,8 +74,9 @@ class DetailsView extends Component {
     if(event.key === 'Enter') {
       this.saveAudio();
     } else {
+      debugger;
       this.setState({
-        inputValue: event.target.value
+        inputValue: event.currentTarget.value
       });
     }
   }
