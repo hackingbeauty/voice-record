@@ -74,7 +74,6 @@ class DetailsView extends Component {
     if(event.key === 'Enter') {
       this.saveAudio();
     } else {
-      debugger;
       this.setState({
         inputValue: event.currentTarget.value
       });

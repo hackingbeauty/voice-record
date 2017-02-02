@@ -11,7 +11,6 @@ import './styles/app.scss';
 /* application components */
 import Header     from 'containers/Header';
 import LeftNavBar from 'containers/LeftNavBar';
-import Navigation from 'components/Navigation';
 
 injectTapEventPlugin();
 
@@ -32,8 +31,7 @@ export class App extends Component {
     return (
       <MuiThemeProvider muiTheme={getMuiTheme()}>
         <div>
-          <Header />
-          <Navigation
+          <Header
             content={children}
             route={route}
             router={router} />
