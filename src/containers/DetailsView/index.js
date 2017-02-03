@@ -109,7 +109,7 @@ class DetailsView extends Component {
       const { title } = this.state.audioBlob;
       const { blob } = this.state.audioBlob;
 
-      body = (<div>
+      body= (<div>
               <span className="audio-title">{title}</span>
               <Button
                 className="btn play"
@@ -117,18 +117,21 @@ class DetailsView extends Component {
                 icon={<PlayButton />}
                 onTouchTap={this.playAudio}
                 secondary={true} />
-              <audio ref="audioSource" controls="controls">
-                <source src={URL.createObjectURL(blob)} type="audio/webm" />
-              </audio>
+              <div className="audio-controls">
+                <audio ref="audioSource" controls="controls">
+                  <source src={URL.createObjectURL(blob)} type="audio/webm" />
+                </audio>
+              </div>
             </div>);
     } else {
-      body = (<TextField
+      body= (<TextField
               ref="textField"
               onKeyPress={this.onKeyPress}
               autoFocus
               hintText="Enter a Title"
               value={this.state.inputValue} />);
     }
+
     return(
       <div>
         <header>

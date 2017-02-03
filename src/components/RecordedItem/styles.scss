@@ -12,8 +12,8 @@
     display: block;
   }
 
-  .title {
-    margin-bottom: 10px;
+  h2.title {
+    margin-bottom: 5px;
     font-size: 18px;
     &::first-letter {
       text-transform: capitalize;
@@ -29,7 +29,7 @@
 
   .length {
     position: absolute;
-    top: 20px;
+    top: 24px;
     right: 20px;
   }
 
