@@ -89,7 +89,7 @@ class DetailsView extends Component {
       title = inputValue;
       this.props.actions.audio.saveAudio(currentId, title);
     } else {
-      title='Untitled';
+      title=`My recoding #${this.props.audio.count}`;
       this.props.actions.audio.saveAudio(currentId, title);
     }
   }

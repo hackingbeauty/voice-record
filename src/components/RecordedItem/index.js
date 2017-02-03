@@ -20,7 +20,7 @@ export default function RecordedItem(props) {
   return (
     <div className={styles}>
       <Link to={`/recording/${id}`} className="item">
-        <div className="title">{title}</div>
+        <h2 className="title">{title}</h2>
         <div className="created-at">{createdAt}</div>
         <div className="length">{length}</div>
         <div className="size">{totalSize} MB</div>

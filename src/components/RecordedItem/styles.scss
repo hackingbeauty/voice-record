@@ -6,7 +6,6 @@
 
   .item {
     position: relative;
-    font-size: 18px;
     border-bottom:1px solid $lighterGrey;
     padding: 20px;
     cursor: pointer;
@@ -14,7 +13,8 @@
   }
 
   .title {
-    margin-bottom: 5px;
+    margin-bottom: 10px;
+    font-size: 18px;
     &::first-letter {
       text-transform: capitalize;
     }

@@ -1,7 +1,11 @@
 :local(.styles) {
   height: 50px;
 
+  h1 {
+    font-size: 20px !important;
+  }
+
   .tabs {
-    margin-top: -25px;
+    margin-top: -18px;
   }
 }

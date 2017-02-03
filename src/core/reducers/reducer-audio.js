@@ -1,11 +1,12 @@
 import types from 'core/types';
 
 const initialState = {
-  list    : [],
-  id      : '',
-  blob    : null,
-  blobURL : '',
-  startTime : null
+  list      : [],
+  id        : '',
+  blob      : null,
+  blobURL   : '',
+  startTime : null,
+  count     : 0
 };
 
 export function audioReducer(state = initialState, action) {
@@ -25,13 +26,15 @@ export function audioReducer(state = initialState, action) {
     const audioList = state.list;
 
     return Object.assign({}, state, {
-      list: audioList
+      list  : audioList,
+      count : audioList.length
     });
   }
 
   case types.GET_AUDIO_ITEMS: {
     return Object.assign({}, state, {
-      list : action.list
+      list  : action.list,
+      count : action.list.length
     });
   }
 
