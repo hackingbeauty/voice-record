@@ -165,8 +165,8 @@ class DetailsView extends Component {
 
 function mapStateToProps(state) {
   return {
-    ui   : state.ui,
-    audio: state.audio
+    ui    : state.ui,
+    audio : state.audio
   };
 }
 
@@ -179,4 +179,4 @@ function mapDispatchToProps(dispatch) {
   };
 }
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(withRouter(DetailsView)));
+export default connect(mapStateToProps, mapDispatchToProps)(withRouter(DetailsView));
