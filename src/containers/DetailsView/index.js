@@ -26,15 +26,20 @@ class DetailsView extends Component {
     super(props);
     this.saveAudio = this.saveAudio.bind(this);
     this.state = {
+      open       : false,
       inputValue : '',
       audioBlob  : null
     }
   }
 
   componentDidMount() {
+    const self = this;
     const { actions } = this.props;
 
     getAll().then((list) => {
+      self.setState({
+        open: true
+      });
       this.findRecordId(list);
     });
   }
@@ -148,12 +153,13 @@ class DetailsView extends Component {
 
   render() {
     const content = this.getContent();
+    const { open } = this.state;
 
     return (
       <div className={styles}>
         <Drawer
           width={500}
-          open={this.props.ui.rightNavOpen}
+          open={open}
           containerClassName="right-drawer"
           openSecondary={true}
           onRequestChange={this.closeNav}
