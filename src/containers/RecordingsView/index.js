@@ -55,9 +55,7 @@ class RecordingsView extends Component {
 
     return (
       <div className={styles}>
-        <div className="container">
-          {recordings}
-        </div>
+        {recordings}
       </div>
     );
   }

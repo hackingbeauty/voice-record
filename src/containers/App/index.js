@@ -26,7 +26,7 @@ export class App extends Component {
   render() {
     const { router, children } = this.props;
     const path = router.location.pathname;
-    const route = path.substr(1,path.length);
+    const route = path.substr(1, path.length);
 
     return (
       <MuiThemeProvider muiTheme={getMuiTheme()}>
@@ -35,6 +35,9 @@ export class App extends Component {
             content={children}
             route={route}
             router={router} />
+          <div className="main-container">
+            {children}
+          </div>
           <LeftNavBar />
         </div>
       </MuiThemeProvider>

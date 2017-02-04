@@ -48,8 +48,6 @@ class Navigation extends Component {
   }
 
   render() {
-    const { content } = this.props;
-
     return(
       <div className={styles}>
         <Tabs
@@ -65,9 +63,6 @@ class Navigation extends Component {
             value={'recordings'}>
           </Tab>
         </Tabs>
-        <div>
-          {content}
-        </div>
       </div>
     );
   }
