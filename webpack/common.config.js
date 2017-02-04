@@ -38,6 +38,10 @@ const common = {
       test: /\.js$/,
       loaders: ['babel-loader'],
       exclude: /node_modules/,
+    },
+    {
+      test: /\.jpe?g$|\.gif$|\.png$|\.svg$|\.woff$|\.ttf$|\.wav$|\.mp3$/,
+      loader: "file-loader"
     }],
   },
 

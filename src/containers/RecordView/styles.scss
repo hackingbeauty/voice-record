@@ -10,15 +10,16 @@
 
   #controls {
     position: absolute;
-    bottom: 30px;
+    bottom: 22px;
     width: 100%;
     border-top: 1px solid $lighterGrey;
     padding-top: 10px;
 
     .timer {
-      font-size: 250%;
+      font-size: 480%;
       color: $lightBlue;
-      margin: 25px 0;
+      margin: 5px 0;
+      font-family: 'Digital', san-serif;
     }
 
     .buttons {
