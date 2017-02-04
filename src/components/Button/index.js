@@ -21,22 +21,52 @@ export default function Button(props) {
 }
 
 function createButton(props) {
+  const { onTouchTap, className, icon } = props;
   let buttonElem;
+
   if(props.floating) {
-    buttonElem = <FloatingActionButton secondary={true} >
+    buttonElem = <FloatingActionButton
+                  onTouchTap={onTouchTap}
+                  className={className}
+                  icon={icon}
+                  secondary={true}>
                   {props.icon}
                  </FloatingActionButton>
+
   } else if(props.floating && props.secondary) {
-    buttonElem = <FloatingActionButton secondary={true} />
+    buttonElem = <FloatingActionButton
+                  onTouchTap={onTouchTap}
+                  className={className}
+                  icon={icon}
+                  secondary={true} />
+
   } else if(props.iconOnly){
-    buttonElem= <IconButton>{props.icon}</IconButton>;
+    buttonElem= <IconButton
+                  onTouchTap={onTouchTap}
+                  className={className}
+                  icon={icon}>{props.icon}</IconButton>;
+
   } else if(props.raised && props.secondary) {
-    buttonElem = <RaisedButton secondary={true} />
+    buttonElem = <RaisedButton
+                  onTouchTap={onTouchTap}
+                  className={className}
+                  icon={icon}
+                  secondary={true} />
+
   } else if(props.raised) {
-    buttonElem = <RaisedButton />
+    buttonElem = <RaisedButton
+                  onTouchTap={onTouchTap}
+                  className={className}
+                  icon={icon} />
+
   } else {
-    buttonElem = <FlatButton />
+    buttonElem = <FlatButton
+                  onTouchTap={onTouchTap}
+                  className={className}
+                  icon={icon} />
+
   }
+
   return buttonElem;
 }
 

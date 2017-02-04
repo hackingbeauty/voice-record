@@ -4,10 +4,6 @@
 
   text-align: center;
 
-  #spectrogram {
-
-  }
-
   #controls {
     position: absolute;
     bottom: 22px;
@@ -26,6 +22,7 @@
       max-width: 200px;
       margin:0 auto;
       position: relative;
+
       .btn {
         &.secondary {
           svg {
