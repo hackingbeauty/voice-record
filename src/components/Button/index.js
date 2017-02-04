@@ -23,31 +23,30 @@ export default function Button(props) {
 function createButton(props) {
   let buttonElem;
   if(props.floating) {
-    buttonElem = <FloatingActionButton {...props} secondary={true} primary={false}>
+    buttonElem = <FloatingActionButton secondary={true} >
                   {props.icon}
                  </FloatingActionButton>
   } else if(props.floating && props.secondary) {
-    buttonElem = <FloatingActionButton {...props} secondary={true} primary={false} />
+    buttonElem = <FloatingActionButton secondary={true} />
   } else if(props.iconOnly){
-    buttonElem= <IconButton {...props}>{props.icon}</IconButton>;
+    buttonElem= <IconButton>{props.icon}</IconButton>;
   } else if(props.raised && props.secondary) {
-    buttonElem = <RaisedButton {...props} secondary={true} primary={false} />
+    buttonElem = <RaisedButton secondary={true} />
   } else if(props.raised) {
-    buttonElem = <RaisedButton {...props} />
+    buttonElem = <RaisedButton />
   } else {
-    buttonElem = <FlatButton {...props} />
+    buttonElem = <FlatButton />
   }
   return buttonElem;
 }
 
 Button.propTypes = {
   raised : React.PropTypes.bool,
-  floating : React.PropTypes.string
+  floating : React.PropTypes.bool
 };
 
 Button.defaultProps = {
   type      : 'button',
-  primary   : true,
   raised    : false,
   label     : '',
   className : 'btn'
