@@ -13,6 +13,7 @@ module.exports = {
   },
 
   module: {
+    noParse: [new RegExp('node_modules/localforage/dist/localforage.js')],
     loaders: [{
       test: /\.scss$/,
       loader: 'style!css?localIdentName=[path][name]--[local]!postcss-loader!sass',
