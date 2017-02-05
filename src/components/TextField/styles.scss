@@ -1,7 +1,13 @@
+@import '../../containers/App/styles/variables';
+
 :local(.styles) {
 
   .text-field {
     width: 100% !important;
+
+    hr:nth-child(2) {
+      border-color: $lightBlue !important;
+    }
   }
 
 }
