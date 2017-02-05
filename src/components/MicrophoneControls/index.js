@@ -3,7 +3,9 @@
  */
 
 import React, { Component } from 'react';
-import { ReactMic, startRecording, stopRecording }         from 'react-mic';
+import { ReactMic,
+         startRecording,
+         stopRecording }    from 'react-mic';
 
 /* component styles */
 import { styles } from './styles.scss';

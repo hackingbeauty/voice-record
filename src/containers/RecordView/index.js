@@ -14,31 +14,29 @@ import { styles } from './styles.scss';
 class RecordView extends Component {
   constructor(props){
     super(props);
-
-    this.toggleMicrophone = this.toggleMicrophone.bind(this);
-    this.saveRecording = this.saveRecording.bind(this);
-    this.deleteRecording = this.deleteRecording.bind(this);
-
     this.state = {
-      startTimer: false,
+      timerOn: false,
       recording: false
     }
   }
 
-  toggleMicrophone() {
+  toggleMicrophone= () => {
     this.setState({
-      startTimer: !this.state.startTimer,
+      timerOn: !this.state.timerOn,
       recording: !this.state.recording
     });
   }
 
-  saveRecording() {
+  saveRecording= () => {
     const uniqueID= uuid.v1();
     this.props.router.push(`/recording/${uniqueID}`);
   }
 
-  deleteRecording() {
-    alert('deleted recording!');
+  deleteRecording= () => {
+    this.setState({
+      timerOn  : false,
+      recording: false
+    });
   }
 
   render() {
@@ -49,7 +47,7 @@ class RecordView extends Component {
             <MicrophoneControls start={this.state.recording} />
           </div>
           <div id="controls">
-            <ReactSimpleTimer play={this.state.startTimer} />
+            <ReactSimpleTimer play={this.state.timerOn} />
             <div className="buttons">
               <Button
                 className="btn secondary delete"
@@ -79,7 +77,7 @@ class RecordView extends Component {
             <MicrophoneControls start={this.state.recording} />
           </div>
           <div id="controls">
-            <ReactSimpleTimer play={this.state.startTimer} />
+            <ReactSimpleTimer play={this.state.timerOn} />
             <Button
               className="btn"
               onTouchTap={this.toggleMicrophone}
