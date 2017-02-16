@@ -28,18 +28,7 @@ class Header extends Component {
     const { pathname } = this.props.router.location;
     const path = pathname.slice(1, pathname.length);
 
-    if(path === 'recordings') {
-      return (
-        <div className={styles}>
-          <header>
-            <AppBar
-              title={audioCount}
-              onLeftIconButtonTouchTap={this.handleToggle} />
-            <Navigation {...this.props} />
-          </header>
-        </div>
-      );
-    } else {
+    if(path === 'record') {
       return (
         <div className={styles}>
           <header>
@@ -48,8 +37,17 @@ class Header extends Component {
               onLeftIconButtonTouchTap={this.handleToggle} />
             <Navigation {...this.props} />
           </header>
-        </div>
-      );
+        </div>);
+    } else {
+      return (
+        <div className={styles}>
+          <header>
+            <AppBar
+              title={audioCount}
+              onLeftIconButtonTouchTap={this.handleToggle} />
+            <Navigation {...this.props} />
+          </header>
+        </div>);
     }
   }
 }
