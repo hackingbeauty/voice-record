@@ -27,13 +27,14 @@ class Header extends Component {
     const audioCount = `${count} ${countText}`;
     const { pathname } = this.props.router.location;
     const path = pathname.slice(1, pathname.length);
+    const title = path === 'record' ? 'New voice memo' : audioCount
 
     if(path === 'record') {
       return (
         <div className={styles}>
           <header>
             <AppBar
-              title="New voice memo"
+              title={title}
               onLeftIconButtonTouchTap={this.handleToggle} />
             <Navigation {...this.props} />
           </header>
@@ -43,7 +44,7 @@ class Header extends Component {
         <div className={styles}>
           <header>
             <AppBar
-              title={audioCount}
+              title={title}
               onLeftIconButtonTouchTap={this.handleToggle} />
             <Navigation {...this.props} />
           </header>
