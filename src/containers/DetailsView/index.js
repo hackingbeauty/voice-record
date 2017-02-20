@@ -8,7 +8,7 @@ import Drawer                 from 'components/Drawer';
 import AppBar                 from 'components/AppBar';
 import TextField              from 'components/TextField';
 import ProgressIndicator      from 'components/ProgressIndicator';
-import NavigationClose        from 'material-ui/svg-icons/navigation/close';
+import NavigationBack         from 'material-ui/svg-icons/navigation/arrow-back';
 import PlayButton             from 'material-ui/svg-icons/av/play-arrow';
 import Checkmark              from 'material-ui/svg-icons/action/check-circle';
 import { saveRecording }      from 'react-mic';
@@ -94,7 +94,7 @@ class DetailsView extends Component {
       title = inputValue;
       this.props.actions.audio.saveAudio(currentId, title);
     } else {
-      title=`My recording #${this.props.audio.count}`;
+      title=`My recording #${this.props.audio.count + 1}`;
       this.props.actions.audio.saveAudio(currentId, title);
     }
   }
@@ -141,7 +141,7 @@ class DetailsView extends Component {
       <div>
         <header>
           <IconButton className="btn close" onTouchTap={this.closeNav}>
-            <NavigationClose/>
+            <NavigationBack />
           </IconButton>
         </header>
         <div className="details-view-body">
