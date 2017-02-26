@@ -75,7 +75,7 @@ class DetailsView extends Component {
     this.props.router.push('/recordings');
   }
 
-  onKeyPress= (event) => {
+  onKeyUp= (event) => {
     if(event.key === 'Enter') {
       this.saveAudio();
     } else {
@@ -88,13 +88,12 @@ class DetailsView extends Component {
   saveAudio() {
     const { inputValue } = this.state;
     const currentId = this.getCurrentId();
-    let title;
 
     if(inputValue) {
-      title = inputValue;
+      const title = inputValue;
       this.props.actions.audio.saveAudio(currentId, title);
     } else {
-      title=`My recording #${this.props.audio.count + 1}`;
+      const title=`My recording #${this.props.audio.count + 1}`;
       this.props.actions.audio.saveAudio(currentId, title);
     }
   }
@@ -131,7 +130,7 @@ class DetailsView extends Component {
     } else {
       body= (<TextField
               ref="textField"
-              onKeyPress={this.onKeyPress}
+              onKeyUp={this.onKeyUp}
               autoFocus
               hintText="Enter a Title"
               value={this.state.inputValue} />);
