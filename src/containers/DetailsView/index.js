@@ -5,14 +5,9 @@ import { withRouter }         from 'react-router-dom';
 import { IconButton }         from 'material-ui';
 import Button                 from 'components/Button';
 import { Drawer  }            from 'material-ui';
-import TextField              from 'components/TextField';
-import EditIcon               from 'material-ui/svg-icons/editor/mode-edit';
-import DownloadIcon           from 'material-ui/svg-icons/file/file-download';
 import NavigationBack         from 'material-ui/svg-icons/navigation/arrow-back';
-import DeleteIcon             from 'material-ui/svg-icons/action/delete-forever';
 import PlayButton             from 'material-ui/svg-icons/av/play-arrow';
 import PauseButton            from 'material-ui/svg-icons/av/pause';
-import CheckCircle            from 'material-ui/svg-icons/action/check-circle';
 
 /* actions */
 import * as uiActionCreators    from 'core/actions/actions-ui';
@@ -27,7 +22,7 @@ class DetailsView extends Component {
     this.state = {
       open       : false,
       audioBlob  : null,
-      isPlaying  : false,
+      isPlaying  : false
     }
   }
 
