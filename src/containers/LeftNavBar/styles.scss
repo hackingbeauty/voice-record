@@ -1,0 +1,13 @@
+@import '../../containers/App/styles/variables';
+
+:local(.styles) {
+
+  position: relative;
+  z-index: 100000;
+
+  div > div:nth-child(2) > div {
+    background-color: $darkGrey !important;
+    height: 88px;
+  }
+
+}

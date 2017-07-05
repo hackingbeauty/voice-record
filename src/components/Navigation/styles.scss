@@ -1,0 +1,22 @@
+@import '../../containers/App/styles/variables';
+
+:local(.styles) {
+
+   .tabs {
+      position: relative;
+      z-index: 10000;
+      margin-top: -18px;
+    }
+
+    .tabs > div:first-child {
+      background-color: $darkGrey !important;
+      button {
+        color: $lightBlue !important;
+      }
+    }
+
+    .tabs div:nth-child(2) div {
+      background-color: $lightBlue !important;
+    }
+
+}

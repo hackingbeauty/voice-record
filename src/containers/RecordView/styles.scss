@@ -1,0 +1,58 @@
+@import '../../containers/App/styles/variables';
+
+:local(.styles) {
+
+  text-align: center;
+
+  #controls {
+    position: absolute;
+    left: 0px;
+    bottom: 20px;
+    width: 100%;
+    border-top: 1px solid $lighterGrey;
+    padding-top: 10px;
+
+  }
+
+  .timer {
+    font-size: 480%;
+    color: $lightBlue;
+    width: 169px;
+    text-align: left;
+    margin: 0 auto;
+    font-family: 'DJB-Digital', san-serif;
+  }
+
+  .buttons {
+    max-width: 200px;
+    margin:0 auto;
+    position: relative;
+
+  }
+
+  .btn {
+    &.secondary {
+      svg {
+        color: $white !important;
+      }
+      &.delete {
+        position: absolute !important;
+        top: 5px;
+        left: 0px;
+        svg {
+          // color: red !important;
+        }
+      }
+      &.save {
+        position: absolute !important;
+        top: 5px;
+        right: 0px;
+        svg {
+          color: $green !important;
+        }
+      }
+    }
+
+  }
+
+}

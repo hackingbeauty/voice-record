@@ -1,0 +1,9 @@
+@import '../../containers/App/styles/variables';
+
+:local(.styles) {
+
+  .app-bar {
+    background: $darkGrey !important;
+  }
+
+}

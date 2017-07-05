@@ -1,0 +1,44 @@
+@import '../../containers/App/styles/variables';
+
+:local(.styles) {
+
+  font-size: 10px;
+  cursor: pointer;
+
+  .item {
+    position: relative;
+    border-bottom:1px solid $lighterGrey;
+    padding: 20px;
+    cursor: pointer;
+    display: block;
+  }
+
+  h2.title {
+    margin-bottom: 5px;
+    font-size: 18px;
+    color: $lightBlue;
+    &::first-letter {
+      text-transform: capitalize;
+    }
+  }
+
+  .length,
+  .created-at,
+  .size {
+    font-size: 15px;
+    color: $white35;
+  }
+
+  .length {
+    position: absolute;
+    top: 24px;
+    right: 20px;
+  }
+
+  .size {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+  }
+
+}
